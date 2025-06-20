@@ -16,3 +16,18 @@ function shuffle(array) {
   }
   return array;
 }
+const shuffledImages = shuffle([...images]);
+
+for (let i = 0; i < shuffledImages.length; i++) {
+  let box = document.createElement('div');
+  box.className = 'item';
+
+  box.innerHTML = `
+    <div class="front"></div>
+    <div class="back">
+      <img src="${shuffledImages[i]}" class="back-img" />
+    </div>
+  `;
+
+  box.onclick = function () {
+    this.classList.toggle('boxOpen');
