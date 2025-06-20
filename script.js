@@ -31,3 +31,32 @@ for (let i = 0; i < shuffledImages.length; i++) {
 
   box.onclick = function () {
     this.classList.toggle('boxOpen');
+
+     setTimeout(function () {
+      const openBoxes = document.querySelectorAll('.boxOpen');
+
+      if (openBoxes.length === 2) {
+        const img1 = openBoxes[0].querySelector('img').src;
+        const img2 = openBoxes[1].querySelector('img').src;
+
+        if (img1 === img2) {
+          openBoxes[0].classList.add('boxMatch');
+          openBoxes[1].classList.add('boxMatch');
+        }
+
+        openBoxes[0].classList.remove('boxOpen');
+        openBoxes[1].classList.remove('boxOpen');
+      }
+
+      if (document.querySelectorAll('.boxMatch').length === images.length) {
+        alert('🎉 Congratulations, you win!');
+      }
+    }, 500);
+  };
+
+  document.querySelector('.game').appendChild(box);
+}
+
+document.querySelector('.restart').onclick = function () {
+  window.location.reload();
+};
