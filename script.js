@@ -1,14 +1,15 @@
 const images = [
-  "img/apple.png", "img/apple.png",
-  "img/banana.png", "img/banana.png",
-  "img/grape.png", "img/grape.png",
-  "img/orange.png", "img/orange.png",
-  "img/cherry.png", "img/cherry.png",
-  "img/kiwi.png", "img/kiwi.png",
-  "img/pear.png", "img/pear.png",
-  "img/pineapple.png", "img/pineapple.png"
+  "./images/Argentina.png", "./images/Argentina.png",
+  "./images/canada.png", "./images/canada.png",
+  "./images/GreenLand.png", "./images/GreenLand.png",
+  "./images/Rwanda.png", "./images/Rwanda.png",
+  "./images/india.png", "./images/india.png",
+  "./images/spain.png", "./images/spain.png",
+  "./images/Morroco.png", "./images/Morroco.png",
+  "./images/usa.png", "./images/usa.png"
 ];
 
+// Shuffle function
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -16,10 +17,12 @@ function shuffle(array) {
   }
   return array;
 }
+
 const shuffledImages = shuffle([...images]);
 
+// Create card elements
 for (let i = 0; i < shuffledImages.length; i++) {
-  let box = document.createElement('div');
+  const box = document.createElement('div');
   box.className = 'item';
 
   box.innerHTML = `
@@ -29,10 +32,12 @@ for (let i = 0; i < shuffledImages.length; i++) {
     </div>
   `;
 
-  box.onclick = function () {
-    this.classList.toggle('boxOpen');
+  box.addEventListener('click', function () {
+    if (box.classList.contains('boxOpen') || box.classList.contains('boxMatch')) return;
 
-     setTimeout(function () {
+    box.classList.add('boxOpen');
+
+    setTimeout(function () {
       const openBoxes = document.querySelectorAll('.boxOpen');
 
       if (openBoxes.length === 2) {
@@ -52,11 +57,12 @@ for (let i = 0; i < shuffledImages.length; i++) {
         alert('🎉 Congratulations, you win!');
       }
     }, 500);
-  };
+  });
 
   document.querySelector('.game').appendChild(box);
 }
 
-document.querySelector('.restart').onclick = function () {
+// Restart button
+document.querySelector('.restart').addEventListener('click', function () {
   window.location.reload();
-};
+});
