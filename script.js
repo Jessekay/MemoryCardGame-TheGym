@@ -8,6 +8,9 @@ const images = [
   "./images/Morroco.png", "./images/Morroco.png",
   "./images/usa.png", "./images/usa.png"
 ];
+let attempts = 0;
+const attemptsSpan = document.getElementById('attempts');
+
 
 // Shuffle function
 function shuffle(array) {
@@ -17,6 +20,7 @@ function shuffle(array) {
   }
   return array;
 }
+
 
 const shuffledImages = shuffle([...images]);
 
@@ -41,6 +45,8 @@ for (let i = 0; i < shuffledImages.length; i++) {
       const openBoxes = document.querySelectorAll('.boxOpen');
 
       if (openBoxes.length === 2) {
+        attempts++;
+        attemptsSpan.textContent = attempts;
         const img1 = openBoxes[0].querySelector('img').src;
         const img2 = openBoxes[1].querySelector('img').src;
 
@@ -54,7 +60,7 @@ for (let i = 0; i < shuffledImages.length; i++) {
       }
 
       if (document.querySelectorAll('.boxMatch').length === images.length) {
-        alert('🎉 Congratulations, you win!');
+        alert(`🎉 Congratulations, you win! with ${attempts} attempts`);
       }
     }, 500);
   });
