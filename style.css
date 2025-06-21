@@ -61,6 +61,7 @@ h2 {
   transform-style: preserve-3d;
   transition: transform 0.5s;
   cursor: pointer;
+  
 }
 
 .item.boxOpen {
@@ -106,4 +107,12 @@ h2 {
   font-size: 1.5em;
   font-weight: bold;
   text-transform: uppercase;
+}
+.front {
+  background-image: url('./images/background.jpeg');
+  background-size: cover;
+  background-position: center;
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+  border-radius: 10px;
 }
