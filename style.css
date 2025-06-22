@@ -18,9 +18,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
-  background-color: rgb(44, 126, 48);
-  padding: 40px 60px;
+  gap: 19px;
+  /* background-color: rgb(44, 126, 48); */
+  background-image: url('./images/bw.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 10px 60px;
   border-radius: 12px;
 }
 
@@ -47,12 +51,17 @@ h2 {
 }
 
 .game {
-  width: 430px;
-  height: 430px;
+  width: 488px;
+  height: 561px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 16px;
+  padding: 20px;
   perspective: 800px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
 }
 
 .item {
