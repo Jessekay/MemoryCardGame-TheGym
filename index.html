@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memory Game | Javascript</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memory Game | JavaScript</title>
+  <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
-    <h2> Flip Memory Game</h2>
+    <h2>Flip Flag Memory Game</h2>
     <div id="attemptsDisplay">Attempts: <span id="attempts">0</span></div>
+
+    <div class="level-buttons">
+      <button id="easyBtn">Easy</button>
+      <button id="mediumBtn">Medium</button>
+      <button id="hardBtn">Hard</button>
+    </div>
+    <p id="levelGuidance">Choose a level to start playing.</p>
+
     <div class="game"></div>
     <button class="restart">Restart Game</button>
   </div>
