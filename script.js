@@ -130,9 +130,19 @@ restartBtn.addEventListener('click', () => {
 });
 
 // Level buttons
-document.getElementById('easyBtn')?.addEventListener('click', () => setLevel('easy'));
-document.getElementById('mediumBtn')?.addEventListener('click', () => setLevel('medium'));
-document.getElementById('hardBtn')?.addEventListener('click', () => setLevel('hard'));
+const levelButtons = document.querySelectorAll('.level-buttons button');
+
+levelButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    levelButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    if (btn.id === 'easyBtn') setLevel('easy');
+    else if (btn.id === 'mediumBtn') setLevel('medium');
+    else if (btn.id === 'hardBtn') setLevel('hard');
+  })
+})
+
 
 // Load game with default level
 window.addEventListener('DOMContentLoaded', () => {
