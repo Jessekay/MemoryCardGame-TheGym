@@ -63,6 +63,10 @@ h2 {
   background-color: rgb(210, 230, 210);
 }
 
+.level-buttons button.active {
+  background-color: rgb(44, 126, 48);
+  color: white;
+}
 
 #levelGuidance {
   color: #fff;
